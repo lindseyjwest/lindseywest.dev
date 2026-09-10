@@ -31,6 +31,13 @@ export function ProjectCard({ project, variant = 'compact' }: ProjectCardProps) 
         <h3>{project.title}</h3>
         <p>{project.description}</p>
 
+        {project.contributionSummary && (
+          <p className="project-contribution">
+            <strong>Contribution</strong>
+            {project.contributionSummary}
+          </p>
+        )}
+
         {project.technologies.length > 0 && (
           <ul className="technology-list" aria-label={`${project.title} technologies`}>
             {project.technologies.map((technology) => (

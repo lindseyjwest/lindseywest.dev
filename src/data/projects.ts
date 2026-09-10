@@ -13,6 +13,7 @@ export type Project = {
   title: string
   category: ProjectCategory
   description: string
+  contributionSummary?: string
   technologies: string[]
   githubUrl?: string
   liveUrl?: string
@@ -27,14 +28,16 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'data-engineering-placeholder',
-    title: 'Data engineering project placeholder',
-    category: 'Data engineering',
+    id: 'rv-park-management-system',
+    title: 'RV Park Management System',
+    category: 'Software engineering',
     description:
-      'Placeholder: add the problem, the system that was built, and Lindsey’s contribution.',
-    technologies: ['Technology placeholder'],
+      'A team-built RV park management application with backend logic for availability, reporting, and data management.',
+    contributionSummary:
+      'Contributed to backend development, testing, reporting and availability logic, database setup, and project planning and implementation decisions.',
+    technologies: ['.NET 8 MVC', 'C#', 'Entity Framework Core', 'SQLite', 'Git/GitHub'],
     featured: true,
-    visual: { tone: 'blue' },
+    visual: { tone: 'mint' },
   },
   {
     id: 'analytics-placeholder',

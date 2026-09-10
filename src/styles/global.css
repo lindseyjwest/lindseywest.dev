@@ -827,6 +827,21 @@ code {
   margin-bottom: 1.25rem;
 }
 
+.project-contribution {
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--accent);
+  font-size: 0.94rem;
+}
+
+.project-contribution strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .project-category {
   margin-bottom: 0.8rem;
   color: var(--accent-dark);
@@ -943,6 +958,10 @@ code {
 
 .project-entry-compact .project-entry-content > p:not(.project-category) {
   margin-bottom: 0.95rem;
+}
+
+.project-entry-compact .project-contribution {
+  font-size: 0.87rem;
 }
 
 .about-hero {
