@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom'
+import { siteLinks } from '../data/siteLinks'
 
 const navigationItems = [
   { label: 'Home', to: '/' },
@@ -50,9 +51,10 @@ export function Layout() {
           </div>
           <nav className="footer-links" aria-label="Portfolio links">
             <a
-              href="https://github.com/lindseyjwest/lindseywest.dev"
+              href={siteLinks.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile (opens in a new tab)"
             >
               GitHub <span aria-hidden="true">↗</span>
             </a>

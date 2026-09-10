@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { siteLinks } from '../data/siteLinks'
 
 const capabilityPlaceholders = [
   {
@@ -42,9 +43,10 @@ export function HomePage() {
             </Link>
             <a
               className="quiet-link"
-              href="https://github.com/lindseyjwest/lindseywest.dev"
+              href={siteLinks.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile (opens in a new tab)"
             >
               GitHub <span aria-hidden="true">↗</span>
             </a>
@@ -142,9 +144,10 @@ export function HomePage() {
           <div className="action-group">
             <a
               className="button button-primary"
-              href="https://github.com/lindseyjwest/lindseywest.dev"
+              href={siteLinks.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile (opens in a new tab)"
             >
               Visit GitHub <span aria-hidden="true">↗</span>
             </a>

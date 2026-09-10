@@ -21,3 +21,8 @@ Phase 1 shell for Lindsey West's professional portfolio.
 - `src/components/` contains the shared layout and reusable page introduction.
 - `src/styles/global.css` contains the small set of global design tokens and responsive styles.
 - `public/_redirects` supports direct links to client-side routes on Cloudflare Pages.
+
+## Resume PDF
+
+Place the approved resume at `public/resume/lindsey-west-resume.pdf`. Then change
+`resumePdfAvailable` to `true` in `src/data/siteLinks.ts` to enable the download action.
