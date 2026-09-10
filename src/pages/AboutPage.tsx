@@ -2,17 +2,17 @@ const aboutTopics = [
   {
     title: 'Professional background',
     description:
-      'Placeholder: add a concise, factual introduction to Lindsey’s professional experience and direction.',
+      'I’m especially drawn to work that starts with a messy question, disconnected data, or a manual workflow and turns into something clearer and more reliable.',
   },
   {
     title: 'Technical interests',
     description:
-      'Placeholder: add the tools, systems, or problems Lindsey is genuinely interested in exploring.',
+      'I like work where technical decisions have a practical impact—whether that means improving a data workflow, reducing repetitive work, or building a tool that is easier for someone else to use.',
   },
   {
     title: 'Education',
     description:
-      'Placeholder: add only the education details Lindsey wants to share as supporting context.',
+      'I’m completing a B.S. in Computer Science at Weber State University, with an expected graduation date of December 2026. My coursework has helped strengthen the software engineering and systems foundation behind the data and automation work I do professionally.',
   },
 ]
 
@@ -24,13 +24,13 @@ export function AboutPage() {
           <p className="eyebrow">About</p>
           <h1 id="about-title">The work, and a little context.</h1>
           <p className="about-hero-copy">
-            This page will bring together real work across data, analytics, automation,
-            and software with the context behind it.
+            I work across data, analytics, automation, and software, with a focus on making
+            information easier to use and processes easier to manage.
           </p>
         </div>
         <div className="about-hero-note">
           <span className="about-hero-note-mark" aria-hidden="true">✦</span>
-          <p>Professional background placeholder</p>
+          <p>Data · Analytics · Automation · Software</p>
         </div>
       </section>
 
@@ -40,8 +40,8 @@ export function AboutPage() {
             <p className="eyebrow">Professional focus</p>
             <h2>Built around useful, well-considered work.</h2>
             <p>
-              The finished story will be specific, factual, and grounded in real
-              experience rather than a résumé recap.
+              I’m most interested in the overlap between data systems, analytics,
+              automation, and application development.
             </p>
           </div>
           <div className="about-topic-list">
@@ -63,8 +63,9 @@ export function AboutPage() {
           <p className="eyebrow">Personal interests</p>
           <h2 id="personal-interests-heading">The person behind the work.</h2>
           <p>
-            Placeholder: add a short, personal note here. Keep it selective and true to
-            Lindsey.
+            Outside of work, I like having a life that is not entirely made of code and
+            dashboards. This part of the site is where I’ll share a little more of
+            that—my dog, hobbies, and a few things I enjoy outside of technical work.
           </p>
         </div>
         <div className="photo-mosaic">
