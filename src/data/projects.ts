@@ -40,12 +40,13 @@ export const projects: Project[] = [
     visual: { tone: 'mint' },
   },
   {
-    id: 'analytics-placeholder',
-    title: 'Analytics project placeholder',
+    id: 'us-accident-analytics-dashboard',
+    title: 'U.S. Accident Analytics Dashboard',
     category: 'Analytics',
     description:
-      'Placeholder: add the question this work explored and the useful outcome it supported.',
-    technologies: ['Technology placeholder'],
+      'An interactive Streamlit dashboard that uses Python and pandas to clean and analyze millions of U.S. traffic accident records, with visualizations for accident severity, location, time, and weather trends.',
+    technologies: ['Python', 'pandas', 'Streamlit'],
+    githubUrl: 'https://github.com/lindseyjwest/us-accident-analytics',
     featured: false,
     visual: { tone: 'coral' },
   },
