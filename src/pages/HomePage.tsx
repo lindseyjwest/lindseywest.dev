@@ -1,22 +1,25 @@
 import { Link } from 'react-router-dom'
 import { siteLinks } from '../data/siteLinks'
 
-const capabilityPlaceholders = [
+const capabilities = [
   {
     title: 'Data Engineering',
-    description: 'Placeholder: add a specific example of reliable data work.',
+    description:
+      'Building reliable data workflows, transformations, and datasets that support reporting, analytics, and downstream systems.',
   },
   {
     title: 'Analytics',
-    description: 'Placeholder: add a specific example of useful analysis or reporting.',
+    description:
+      'Turning operational data into reporting and analysis that helps people understand what’s happening and make better decisions.',
   },
   {
     title: 'Automation',
-    description: 'Placeholder: add a specific example of manual work made simpler.',
+    description: 'Reducing repetitive work with scripts, APIs, workflows, and internal tools.',
   },
   {
     title: 'Software Development',
-    description: 'Placeholder: add a specific example of an application or system.',
+    description:
+      'Building applications and backend systems with an emphasis on practical, maintainable solutions.',
   },
 ]
 
@@ -33,9 +36,10 @@ export function HomePage() {
         <div className="hero-content">
           <p className="eyebrow">Professional portfolio</p>
           <h1 id="home-title">Lindsey West</h1>
-          <p className="professional-descriptor">Professional descriptor placeholder</p>
+          <p className="professional-descriptor">Data, Analytics &amp; Automation</p>
           <p className="hero-copy">
-            A portfolio centered on data, analytics, automation, and software development.
+            I build data workflows, analytics tools, automations, and software that make
+            information easier to use and repetitive work easier to avoid.
           </p>
           <div className="action-group">
             <Link className="button button-primary" to="/projects">
@@ -72,7 +76,7 @@ export function HomePage() {
             </p>
           </div>
           <ol className="capability-list">
-            {capabilityPlaceholders.map((capability, index) => (
+            {capabilities.map((capability, index) => (
               <li className="capability-item" key={capability.title}>
                 <span className="capability-number">0{index + 1}</span>
                 <div>
@@ -123,8 +127,9 @@ export function HomePage() {
             <p className="eyebrow">About</p>
             <h2>A little more context, eventually.</h2>
             <p>
-              Placeholder: add a factual professional introduction and a few personal
-              details Lindsey chooses to share.
+              I like working on problems that sit somewhere between data, software, and
+              process improvement. A lot of my work starts with a messy question or manual
+              process and ends with something easier to understand, maintain, or use.
             </p>
             <Link className="text-link" to="/about">
               Get to know Lindsey <span aria-hidden="true">→</span>
@@ -136,11 +141,8 @@ export function HomePage() {
       <section className="contact-section container" aria-labelledby="contact-heading">
         <div className="contact-panel">
           <p className="eyebrow">Contact</p>
-          <h2 id="contact-heading">Let&apos;s make useful things.</h2>
-          <p>
-            Contact details are coming soon. For now, explore the repository or view the
-            current resume page.
-          </p>
+          <h2 id="contact-heading">Let&apos;s connect.</h2>
+          <p>If my work looks relevant to what you’re building, I’d be glad to hear from you.</p>
           <div className="action-group">
             <a
               className="button button-primary"
