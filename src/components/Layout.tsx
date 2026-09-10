@@ -16,7 +16,7 @@ export function Layout() {
       <header className="site-header">
         <div className="container header-content">
           <NavLink className="site-logo" to="/" aria-label="Lindsey West home">
-            Lindsey West
+            Lindsey West<span className="site-logo-mark" aria-hidden="true" />
           </NavLink>
           <nav aria-label="Primary navigation">
             <ul className="site-navigation">
@@ -44,8 +44,21 @@ export function Layout() {
 
       <footer className="site-footer">
         <div className="container footer-content">
-          <p>© {new Date().getFullYear()} Lindsey West</p>
-          <p>Portfolio shell · Phase 1</p>
+          <div>
+            <p className="footer-name">Lindsey West</p>
+            <p>© {new Date().getFullYear()} · Professional portfolio</p>
+          </div>
+          <nav className="footer-links" aria-label="Portfolio links">
+            <a
+              href="https://github.com/lindseyjwest/lindseywest.dev"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+            <span className="footer-link-placeholder">LinkedIn · coming soon</span>
+            <NavLink to="/resume">Resume</NavLink>
+          </nav>
         </div>
       </footer>
     </div>
