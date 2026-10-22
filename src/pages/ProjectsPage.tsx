@@ -11,8 +11,8 @@ export function ProjectsPage() {
         <p className="eyebrow">Projects</p>
         <h1 id="projects-title">Work worth looking closer at.</h1>
         <p className="projects-hero-copy">
-          A growing collection of data, analytics, automation, and software work. Each
-          entry will be expanded with real context when it is ready to share.
+          A selection of data, analytics, automation, and software work. Project visuals
+          are clearly labeled placeholders until real screenshots are ready to share.
         </p>
       </section>
 
@@ -20,9 +20,9 @@ export function ProjectsPage() {
         <div className="section-heading section-heading-row">
           <div>
             <p className="eyebrow">Featured</p>
-            <h2 id="featured-projects-heading">A closer look, when the details are ready.</h2>
+            <h2 id="featured-projects-heading">A collaborative software project.</h2>
           </div>
-          <p className="project-section-note">Selected project placeholder</p>
+          <p className="project-section-note">Selected project</p>
         </div>
         {featuredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} variant="featured" />
@@ -33,10 +33,10 @@ export function ProjectsPage() {
         <div className="container project-index-layout">
           <div className="project-index-intro">
             <p className="eyebrow">Project index</p>
-            <h2 id="project-index-heading">More to explore.</h2>
+            <h2 id="project-index-heading">More selected work.</h2>
             <p>
-              Placeholders are organized by project type so the mix can grow without
-              changing the page structure.
+              The files in <code>public/images/projects</code> can be replaced with real
+              screenshots later without changing the page structure.
             </p>
           </div>
           <div className="project-index-list">

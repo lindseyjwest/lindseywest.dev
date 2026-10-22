@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">AI and Technical Task Force visual placeholder</title>
+  <desc id="description">A workflow diagram marking where a future project visual can be added.</desc>
+  <rect width="1200" height="760" fill="#fff8dd"/>
+  <rect x="88" y="76" width="1024" height="608" rx="28" fill="#ffffff" stroke="#eed889" stroke-width="4"/>
+  <path d="M272 330h214M714 330h214M600 454v82" fill="none" stroke="#d9bd61" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="218" cy="330" r="76" fill="#fff0ec" stroke="#ff7657" stroke-width="8"/>
+  <circle cx="600" cy="330" r="108" fill="#fff8dd" stroke="#9b6b00" stroke-width="8"/>
+  <circle cx="982" cy="330" r="76" fill="#e9eeff" stroke="#245dff" stroke-width="8"/>
+  <rect x="498" y="536" width="204" height="66" rx="20" fill="#172033"/>
+  <circle cx="218" cy="330" r="24" fill="#ff7657"/>
+  <path d="M565 330h70M600 295v70" stroke="#9b6b00" stroke-width="20" stroke-linecap="round"/>
+  <path d="M954 330l20 20 40-48" fill="none" stroke="#245dff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="578" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="2">VISUAL PLACEHOLDER</text>
+</svg>

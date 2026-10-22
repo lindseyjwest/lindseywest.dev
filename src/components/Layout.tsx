@@ -58,7 +58,15 @@ export function Layout() {
             >
               GitHub <span aria-hidden="true">↗</span>
             </a>
-            <span className="footer-link-placeholder">LinkedIn · coming soon</span>
+            <a
+              href={siteLinks.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile (opens in a new tab)"
+            >
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+            <a href={siteLinks.email}>Email</a>
             <NavLink to="/resume">Resume</NavLink>
           </nav>
         </div>

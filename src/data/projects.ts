@@ -36,8 +36,13 @@ export const projects: Project[] = [
     contributionSummary:
       'Contributed to backend development, testing, reporting and availability logic, database setup, and project planning and implementation decisions.',
     technologies: ['.NET 8 MVC', 'C#', 'Entity Framework Core', 'SQLite', 'Git/GitHub'],
+    githubUrl: 'https://github.com/XaRodriguezWSU/RVPark',
     featured: true,
-    visual: { tone: 'mint' },
+    visual: {
+      tone: 'mint',
+      imageSrc: '/images/projects/rv-park-management-placeholder.svg',
+      imageAlt: 'Placeholder for an RV Park Management System application screenshot',
+    },
   },
   {
     id: 'us-accident-analytics-dashboard',
@@ -48,46 +53,26 @@ export const projects: Project[] = [
     technologies: ['Python', 'pandas', 'Streamlit'],
     githubUrl: 'https://github.com/lindseyjwest/us-accident-analytics',
     featured: false,
-    visual: { tone: 'coral' },
+    visual: {
+      tone: 'coral',
+      imageSrc: '/images/projects/us-accident-analytics-placeholder.svg',
+      imageAlt: 'Placeholder for a U.S. Accident Analytics dashboard screenshot',
+    },
   },
   {
-    id: 'automation-placeholder',
-    title: 'Automation project placeholder',
+    id: 'ai-technical-task-force',
+    title: 'AI and Technical Task Force',
     category: 'Automation',
     description:
-      'Placeholder: add the process this work improved and the approach used to improve it.',
-    technologies: ['Technology placeholder'],
+      'A cross-department group that identifies business needs, evaluates technology solutions, and coordinates projects from planning through implementation.',
+    contributionSummary:
+      'Contributes to project planning and technical development, including a clinical mentorship application and Python automation for organizing images and preparing documents.',
+    technologies: ['Python', 'Automation', 'Technical planning'],
     featured: false,
-    visual: { tone: 'yellow' },
-  },
-  {
-    id: 'software-engineering-placeholder',
-    title: 'Software engineering project placeholder',
-    category: 'Software engineering',
-    description:
-      'Placeholder: add what was built, the technical decisions, and Lindsey’s role.',
-    technologies: ['Technology placeholder'],
-    featured: false,
-    visual: { tone: 'mint' },
-  },
-  {
-    id: 'school-project-placeholder',
-    title: 'School project placeholder',
-    category: 'School project',
-    description:
-      'Placeholder: add the project context and the parts that demonstrate real technical work.',
-    technologies: ['Technology placeholder'],
-    featured: false,
-    visual: { tone: 'blue' },
-  },
-  {
-    id: 'personal-project-placeholder',
-    title: 'Personal project placeholder',
-    category: 'Personal project',
-    description:
-      'Placeholder: add the problem Lindsey chose to explore and what was learned in the process.',
-    technologies: ['Technology placeholder'],
-    featured: false,
-    visual: { tone: 'coral' },
+    visual: {
+      tone: 'yellow',
+      imageSrc: '/images/projects/ai-task-force-placeholder.svg',
+      imageAlt: 'Placeholder for an AI and Technical Task Force project visual',
+    },
   },
 ]

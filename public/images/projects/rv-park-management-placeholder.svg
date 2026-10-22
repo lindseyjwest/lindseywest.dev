@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">RV Park Management System screenshot placeholder</title>
+  <desc id="description">A simple interface frame marking where a future application screenshot can be added.</desc>
+  <rect width="1200" height="760" fill="#eff8f6"/>
+  <rect x="88" y="76" width="1024" height="608" rx="28" fill="#ffffff" stroke="#b8d9d2" stroke-width="4"/>
+  <rect x="88" y="76" width="1024" height="82" rx="28" fill="#dff1ed"/>
+  <circle cx="140" cy="117" r="11" fill="#ff7657"/>
+  <circle cx="178" cy="117" r="11" fill="#f6c84c"/>
+  <circle cx="216" cy="117" r="11" fill="#187564"/>
+  <rect x="154" y="232" width="286" height="294" rx="24" fill="#dff1ed"/>
+  <path d="M210 436c0-80 40-132 87-132s87 52 87 132" fill="none" stroke="#187564" stroke-width="26" stroke-linecap="round"/>
+  <circle cx="297" cy="360" r="34" fill="#187564"/>
+  <rect x="514" y="242" width="424" height="28" rx="14" fill="#172033" opacity=".88"/>
+  <rect x="514" y="304" width="518" height="18" rx="9" fill="#a8b6b2"/>
+  <rect x="514" y="344" width="462" height="18" rx="9" fill="#a8b6b2"/>
+  <rect x="514" y="424" width="180" height="72" rx="18" fill="#245dff"/>
+  <text x="600" y="620" text-anchor="middle" fill="#187564" font-family="Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="3">SCREENSHOT PLACEHOLDER</text>
+</svg>

@@ -1,32 +1,28 @@
 import { Link } from 'react-router-dom'
+import { projects } from '../data/projects'
 import { siteLinks } from '../data/siteLinks'
 
 const capabilities = [
   {
     title: 'Data Engineering',
     description:
-      'Building reliable data workflows, transformations, and datasets that support reporting, analytics, and downstream systems.',
+      'Building and maintaining Snowflake pipelines, dbt models, stored procedures, and scheduled tasks that bring data together reliably.',
   },
   {
     title: 'Analytics',
     description:
-      'Turning operational data into reporting and analysis that helps people understand what’s happening and make better decisions.',
+      'Developing Domo dashboards, KPIs, and reporting datasets that make performance and trends easier to understand.',
   },
   {
     title: 'Automation',
-    description: 'Reducing repetitive work with scripts, APIs, workflows, and internal tools.',
+    description:
+      'Reducing repetitive work with Python, Azure Functions, Power Automate, and internal business applications.',
   },
   {
     title: 'Software Development',
     description:
-      'Building applications and backend systems with an emphasis on practical, maintainable solutions.',
+      'Building practical applications with C#, JavaScript, REST APIs, and the Microsoft Power Platform.',
   },
-]
-
-const projectPlaceholders = [
-  { number: '01', accent: 'project-visual-blue' },
-  { number: '02', accent: 'project-visual-coral' },
-  { number: '03', accent: 'project-visual-yellow' },
 ]
 
 export function HomePage() {
@@ -59,11 +55,13 @@ export function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="hero-mark" aria-hidden="true">
-          <span className="hero-mark-dot" />
-          <span className="hero-mark-line" />
-          <span className="hero-mark-index">01</span>
-        </div>
+        <figure className="hero-portrait">
+          <img
+            src="/images/profile/lindsey-west-professional-headshot.jpg"
+            alt="Lindsey West smiling in a professional headshot"
+          />
+          <figcaption>Data Analyst · Salt Lake City, UT</figcaption>
+        </figure>
       </section>
 
       <section className="what-i-do section" aria-labelledby="capabilities-heading">
@@ -71,9 +69,7 @@ export function HomePage() {
           <div className="section-heading what-i-do-heading">
             <p className="eyebrow">What I do</p>
             <h2 id="capabilities-heading">Technical work with practical purpose.</h2>
-            <p>
-              The details will be grounded in real work as the portfolio grows.
-            </p>
+            <p>Data systems, reporting, and software that support day-to-day decisions.</p>
           </div>
           <ol className="capability-list">
             {capabilities.map((capability, index) => (
@@ -94,23 +90,28 @@ export function HomePage() {
         <div className="section-heading section-heading-row">
           <div>
             <p className="eyebrow">Featured work</p>
-            <h2 id="featured-work-heading">A few things, thoughtfully chosen.</h2>
+            <h2 id="featured-work-heading">Selected work and technical leadership.</h2>
           </div>
           <Link className="text-link" to="/projects">
             All projects <span aria-hidden="true">→</span>
           </Link>
         </div>
         <div className="featured-project-grid">
-          {projectPlaceholders.map((project) => (
-            <article className="featured-project" key={project.number}>
-              <div className={`project-visual ${project.accent}`} aria-hidden="true">
-                <span />
-                <span />
+          {projects.map((project, index) => (
+            <article className="featured-project" key={project.id}>
+              <div className={`project-visual project-tone-${project.visual.tone}`}>
+                {project.visual.imageSrc && (
+                  <img
+                    src={project.visual.imageSrc}
+                    alt={project.visual.imageAlt ?? ''}
+                    loading="lazy"
+                  />
+                )}
               </div>
               <div className="featured-project-content">
-                <p className="project-number">Project {project.number} · Placeholder</p>
-                <h3>Project title placeholder</h3>
-                <p>Placeholder: add the real problem, approach, and outcome.</p>
+                <p className="project-number">Project 0{index + 1} · {project.category}</p>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
               </div>
             </article>
           ))}
@@ -119,13 +120,28 @@ export function HomePage() {
 
       <section className="about-preview section">
         <div className="container about-preview-layout">
-          <div className="photo-placeholder" role="img" aria-label="Future personal photo placeholder">
-            <span>Future personal photo</span>
-            <span aria-hidden="true" className="photo-placeholder-shape" />
+          <div className="experience-snapshot" aria-label="Professional experience snapshot">
+            <p className="eyebrow">Current role</p>
+            <strong>Data Analyst</strong>
+            <span>Mountain Land Physical Therapy Partners</span>
+            <dl>
+              <div>
+                <dt>Since</dt>
+                <dd>2024</dd>
+              </div>
+              <div>
+                <dt>Reporting reach</dt>
+                <dd>80+ clinics</dd>
+              </div>
+              <div>
+                <dt>Support teams</dt>
+                <dd>9 departments</dd>
+              </div>
+            </dl>
           </div>
           <div className="about-preview-content">
             <p className="eyebrow">About</p>
-            <h2>A little more context, eventually.</h2>
+            <h2>Turning complex workflows into useful systems.</h2>
             <p>
               I like working on problems that sit somewhere between data, software, and
               process improvement. A lot of my work starts with a messy question or manual
@@ -146,16 +162,19 @@ export function HomePage() {
           <div className="action-group">
             <a
               className="button button-primary"
-              href={siteLinks.github}
+              href={siteLinks.email}
+            >
+              Email Lindsey
+            </a>
+            <a
+              className="button button-secondary"
+              href={siteLinks.linkedIn}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub profile (opens in a new tab)"
+              aria-label="LinkedIn profile (opens in a new tab)"
             >
-              Visit GitHub <span aria-hidden="true">↗</span>
+              LinkedIn <span aria-hidden="true">↗</span>
             </a>
-            <Link className="button button-secondary" to="/resume">
-              Resume
-            </Link>
           </div>
         </div>
       </section>

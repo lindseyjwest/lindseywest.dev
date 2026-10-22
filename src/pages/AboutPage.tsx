@@ -1,18 +1,21 @@
+import { Link } from 'react-router-dom'
+import { resume } from '../data/resume'
+
 const aboutTopics = [
   {
     title: 'Professional background',
     description:
-      'I’m especially drawn to work that starts with a messy question, disconnected data, or a manual workflow and turns into something clearer and more reliable.',
+      'I build and maintain data pipelines, reporting datasets, dashboards, automations, and internal applications that support teams across an organization.',
   },
   {
     title: 'Technical interests',
     description:
-      'I like work where technical decisions have a practical impact—whether that means improving a data workflow, reducing repetitive work, or building a tool that is easier for someone else to use.',
+      'I’m especially interested in reliable data systems, data quality, analytics, and automation that makes information easier to use.',
   },
   {
     title: 'Education',
     description:
-      'I’m completing a B.S. in Computer Science at Weber State University, with an expected graduation date of December 2026. My coursework has helped strengthen the software engineering and systems foundation behind the data and automation work I do professionally.',
+      'I’m completing a B.S. in Computer Science at Weber State University, expected December 2026, after earning an A.S. in Computer Science from Salt Lake Community College in 2024.',
   },
 ]
 
@@ -28,10 +31,12 @@ export function AboutPage() {
             information easier to use and processes easier to manage.
           </p>
         </div>
-        <div className="about-hero-note">
-          <span className="about-hero-note-mark" aria-hidden="true">✦</span>
-          <p>Data · Analytics · Automation · Software</p>
-        </div>
+        <figure className="about-portrait">
+          <img
+            src="/images/profile/lindsey-west-professional-headshot.jpg"
+            alt="Professional portrait of Lindsey West"
+          />
+        </figure>
       </section>
 
       <section className="about-story section">
@@ -58,36 +63,30 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="personal-section container" aria-labelledby="personal-interests-heading">
+      <section className="personal-section container" aria-labelledby="technical-foundation-heading">
         <div className="personal-section-heading">
-          <p className="eyebrow">Personal interests</p>
-          <h2 id="personal-interests-heading">The person behind the work.</h2>
+          <p className="eyebrow">Technical foundation</p>
+          <h2 id="technical-foundation-heading">Tools I use to move work forward.</h2>
           <p>
-            Outside of work, I like having a life that is not entirely made of code and
-            dashboards. This part of the site is where I’ll share a little more of
-            that—my dog, hobbies, and a few things I enjoy outside of technical work.
+            My current toolkit spans programming, data platforms, reporting, cloud
+            services, and workflow automation.
           </p>
         </div>
-        <div className="photo-mosaic">
-          <figure className="photo-slot photo-slot-portrait">
-            <div role="img" aria-label="Future portrait photo placeholder">
-              Portrait photo
-            </div>
-            <figcaption>Photo placeholder · Lindsey</figcaption>
-          </figure>
-          <figure className="photo-slot photo-slot-dog">
-            <div role="img" aria-label="Future dog photo placeholder">Dog photo</div>
-            <figcaption>Photo placeholder · dog</figcaption>
-          </figure>
-          <figure className="photo-slot photo-slot-hobby-one">
-            <div role="img" aria-label="Future hobby photo placeholder one">Hobby photo</div>
-            <figcaption>Photo placeholder · hobby</figcaption>
-          </figure>
-          <figure className="photo-slot photo-slot-hobby-two">
-            <div role="img" aria-label="Future hobby photo placeholder two">Hobby photo</div>
-            <figcaption>Photo placeholder · hobby</figcaption>
-          </figure>
+        <div className="skills-grid">
+          {resume.skills.map((skillGroup) => (
+            <article className="skill-card" key={skillGroup.category}>
+              <h3>{skillGroup.category}</h3>
+              <ul className="skill-tags" aria-label={`${skillGroup.category} skills`}>
+                {skillGroup.items.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
+        <Link className="text-link about-resume-link" to="/resume">
+          View experience and education <span aria-hidden="true">→</span>
+        </Link>
       </section>
     </>
   )

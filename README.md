@@ -22,7 +22,10 @@ Phase 1 shell for Lindsey West's professional portfolio.
 - `src/styles/global.css` contains the small set of global design tokens and responsive styles.
 - `public/_redirects` supports direct links to client-side routes on Cloudflare Pages.
 
-## Resume PDF
+## Portfolio assets
 
-Place the approved resume at `public/resume/lindsey-west-resume.pdf`. Then change
-`resumePdfAvailable` to `true` in `src/data/siteLinks.ts` to enable the download action.
+- The downloadable resume lives at `public/resume/lindsey-west-resume.pdf`.
+- The professional headshot lives at `public/images/profile/lindsey-west-professional-headshot.jpg`.
+- Project placeholder images live in `public/images/projects/`. Replace an SVG with a real
+  screenshot using the same filename to update the site without changing React code.
+- Resume content shown on the site is centralized in `src/data/resume.ts`.
