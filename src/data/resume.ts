@@ -22,7 +22,7 @@ export const resume = {
       school: 'Weber State University',
       location: 'Ogden, UT',
       degree: 'B.S. Computer Science',
-      date: 'Expected December 2026',
+      date: '2026',
     },
     {
       school: 'Salt Lake Community College',

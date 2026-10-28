@@ -1,121 +1,99 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { resume } from '../data/resume'
+import '../styles/about.css'
 
-const capabilities = [
-  { title: 'Data engineering', description: 'Snowflake pipelines, dbt models, stored procedures, and scheduled tasks that bring data together reliably.' },
-  { title: 'Analytics', description: 'Domo dashboards, KPIs, and reporting datasets that make performance and trends easier to understand.' },
-  { title: 'Automation', description: 'Python, Azure Functions, Power Automate, and internal applications that reduce repetitive work.' },
-  { title: 'Software development', description: 'Practical applications built with C#, JavaScript, REST APIs, and the Microsoft Power Platform.' },
-]
-
-const aboutTopics = [
-  {
-    title: 'Professional Experience',
-    description:
-      'I build and maintain data pipelines, reporting datasets, dashboards, automations, and internal applications that support teams across an organization.',
-    detail:
-      'As a member of the cross-department AI and Technical Task Force, I collaborate with colleagues to identify business needs, evaluate technical solutions, and coordinate work from planning through implementation. I contribute to planning and technical development, including a clinical mentorship application and Python automation for organizing images and preparing documents.',
-  },
-  {
-    title: 'Technical interests',
-    description:
-      'I’m especially interested in reliable data systems, data quality, analytics, and automation that makes information easier to use.',
-  },
-  {
-    title: 'Education',
-    description:
-      'I’m completing a B.S. in Computer Science at Weber State University, expected December 2026, after earning an A.S. in Computer Science from Salt Lake Community College in 2024.',
-  },
+const skillGroups = [
+  { title: 'Data engineering', items: 'Snowflake, SQL, dbt, ETL/ELT, data modeling, data validation' },
+  { title: 'Analytics & business intelligence', items: 'Domo, Excel, dashboards, KPI reporting' },
+  { title: 'Development', items: 'Python, JavaScript, C#, .NET, Java, REST APIs, Git & GitHub' },
+  { title: 'Automation & cloud', items: 'Azure Functions, Power Automate, Power Apps, Azure services, Domo Pro Code Apps, SharePoint' },
 ]
 
 export function AboutPage() {
+  const pageRef = useRef<HTMLDivElement>(null)
+  const experience = resume.experience[0]
+
+  useEffect(() => {
+    const items = pageRef.current?.querySelectorAll<HTMLElement>('[data-about-reveal]')
+    if (!items?.length || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.1 })
+    items.forEach((item) => {
+      if (item.getBoundingClientRect().top >= window.innerHeight) {
+        item.classList.add('will-reveal')
+        observer.observe(item)
+      }
+    })
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <>
-      <section className="about-hero container" aria-labelledby="about-title">
-        <div>
-          <p className="eyebrow">About</p>
-          <h1 id="about-title">The work, and a little context.</h1>
-          <p className="about-hero-copy">
-            I work across data, analytics, automation, and software, with a focus on making
-            information easier to use and processes easier to manage.
-          </p>
+    <div className="about-page" ref={pageRef}>
+      <section className="about-intro home-wrap" aria-labelledby="about-title">
+        <div className="about-intro-copy">
+          <p className="about-label">A little about me</p>
+          <h1 id="about-title">Curious by nature.<br /><em>Practical by design.</em></h1>
+          <p>I’m Lindsey. I like understanding how things work, asking questions, and building useful applications and data solutions.</p>
+          <p>My work often starts with a messy question or a manual process and ends with something easier to understand, maintain, or use.</p>
         </div>
-        <figure className="about-portrait">
-          <img
-            src="/images/profile/lindsey-west-professional-headshot.jpg"
-            alt="Professional portrait of Lindsey West"
-          />
+        <figure className="about-intro-portrait">
+          <img src="/images/profile/lindsey-west-professional-headshot.jpg" alt="Lindsey West smiling in a professional headshot" />
+          <figcaption>Lindsey West / Salt Lake City, UT</figcaption>
         </figure>
       </section>
 
-      <section className="about-story section">
-        <div className="container about-story-layout">
-          <div className="about-story-intro">
-            <p className="eyebrow">Professional focus</p>
-            <h2>Built around useful, well-considered work.</h2>
-            <p>
-              I’m most interested in the overlap between data systems, analytics,
-              automation, and application development.
-            </p>
+      <section className="about-experience" aria-labelledby="about-experience-heading">
+        <div className="home-wrap about-section-layout">
+          <div className="about-section-heading" data-about-reveal>
+            <p className="about-label">Professional experience</p>
+            <h2 id="about-experience-heading">Learning through <em>the work.</em></h2>
+            <p>At Mountain Land Physical Therapy Partners, my work spans data, software, and the teams that use them.</p>
           </div>
-          <div className="about-topic-list">
-            {aboutTopics.map((topic, index) => (
-              <article className="about-topic" key={topic.title}>
-                <p className="about-topic-number">0{index + 1}</p>
-                <div>
-                  <h3>{topic.title}</h3>
-                  <p>{topic.description}</p>
-                  {'detail' in topic && <p>{topic.detail}</p>}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section container" aria-labelledby="capabilities-heading">
-        <div className="about-story-layout">
-          <div className="about-story-intro">
-            <p className="eyebrow">What I do</p>
-            <h2 id="capabilities-heading">Technical work with practical purpose.</h2>
-            <p>Data systems, reporting, and software that support day-to-day decisions.</p>
-          </div>
-          <div className="about-topic-list">
-            {capabilities.map((capability, index) => (
-              <article className="about-topic" key={capability.title}>
-                <p className="about-topic-number">0{index + 1}</p>
-                <div><h3>{capability.title}</h3><p>{capability.description}</p></div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="personal-section container" aria-labelledby="technical-foundation-heading">
-        <div className="personal-section-heading">
-          <p className="eyebrow">Technical foundation</p>
-          <h2 id="technical-foundation-heading">Tools I use to move work forward.</h2>
-          <p>
-            My current toolkit spans programming, data platforms, reporting, cloud
-            services, and workflow automation.
-          </p>
-        </div>
-        <div className="skills-grid">
-          {resume.skills.map((skillGroup) => (
-            <article className="skill-card" key={skillGroup.category}>
-              <h3>{skillGroup.category}</h3>
-              <ul className="skill-tags" aria-label={`${skillGroup.category} skills`}>
-                {skillGroup.items.map((skill) => (
-                  <li key={skill}>{skill}</li>
-                ))}
-              </ul>
+          <div className="about-timeline">
+            <article className="about-timeline-entry" data-about-reveal>
+              <div className="about-timeline-meta"><span>{experience.dates}</span><span>Mountain Land Physical Therapy Partners</span></div>
+              <div>
+                <h3>{experience.role}</h3>
+                <p>I build and maintain data pipelines and SQL-based dbt models in Snowflake, integrating data from multiple sources. I investigate data quality issues, troubleshoot pipelines, and validate reporting across systems.</p>
+                <p>In Domo, I develop dashboards, KPIs, and reporting datasets for more than 80 clinics and nine support service departments. I also build Python automation with Azure Functions and Power Automate, and internal applications using tools including Power Apps and Domo Pro Code Apps.</p>
+                <p>As a member of the cross-department AI and Technical Task Force, I work with colleagues to identify business needs, evaluate potential solutions, and contribute to planning and implementation. My contributions include work on a clinical mentorship application and Python automation for organizing images and preparing documents.</p>
+              </div>
             </article>
-          ))}
+          </div>
         </div>
-        <Link className="text-link about-resume-link" to="/resume">
-          View experience and education <span aria-hidden="true">→</span>
-        </Link>
       </section>
-    </>
+
+      <section className="about-skills home-wrap" aria-labelledby="about-skills-heading" data-about-reveal>
+        <div className="about-skills-intro"><p className="about-label">Technical skills</p><h2 id="about-skills-heading">The tools behind <em>the work.</em></h2><p>My toolkit spans data platforms, reporting, application development, and workflow automation.</p></div>
+        <div className="about-skill-list">
+          {skillGroups.map((group, index) => <div className="about-skill-row" key={group.title}><span className="about-skill-number">0{index + 1}</span><h3>{group.title}</h3><p>{group.items}</p></div>)}
+        </div>
+      </section>
+
+      <section className="about-education" aria-labelledby="about-education-heading" data-about-reveal>
+        <div className="home-wrap about-section-layout">
+          <div className="about-section-heading"><p className="about-label">Education</p><h2 id="about-education-heading">A foundation in <em>computer science.</em></h2></div>
+          <div className="about-education-list">
+            {resume.education.map((education) => <article className="about-education-entry" key={education.school}><div><h3>{education.school}</h3><p>{education.degree === 'B.S. Computer Science' ? 'Bachelor of Science in Computer Science' : 'Associate of Science in Computer Science'}</p></div><p className="about-label">{education.date}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="about-closing home-wrap" aria-labelledby="about-closing-heading" data-about-reveal>
+        <div><p className="about-label">Outside of work</p><h2 id="about-closing-heading">Beyond the <em>keyboard.</em></h2></div>
+        <div>
+          <p>When I’m not working with data or writing code, you’ll probably find me reading a good book, watching a movie (especially Star Wars), or spending time with my dog, Nora.</p>
+          <p>I also love making jewelry, traveling, and finding new creative projects to get into. I enjoy having a mix of technical and creative interests, and I’m usually working on something new.</p>
+          <div className="about-links"><Link to="/projects">Explore my work <span aria-hidden="true">→</span></Link><Link to="/resume">View my resume <span aria-hidden="true">→</span></Link></div>
+        </div>
+      </section>
+    </div>
   )
 }
