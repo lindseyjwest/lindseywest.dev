@@ -1,0 +1,24 @@
+.resume-document-page { color: var(--home-navy); background: var(--home-white); font-family: var(--home-body); }
+.resume-document-intro { padding-block: clamp(3rem, 6vw, 5rem) 2.5rem; }
+.resume-document-label, .resume-preview-heading span { font: 500 .7rem/1.5 var(--home-mono); letter-spacing: .06em; text-transform: uppercase; }
+.resume-document-label { margin-bottom: 1.5rem; color: inherit; }
+.resume-document-intro h1 { max-width: 800px; margin-bottom: 1.1rem; color: inherit; font: 400 clamp(2.6rem, 4.7vw, 4.4rem)/1.1 var(--home-display); letter-spacing: -.045em; }
+.resume-document-intro h1 em { font: italic 1.16em/1 var(--home-serif); letter-spacing: -.02em; }
+.resume-document-description { max-width: 530px; margin-bottom: 1.5rem; color: inherit; font-size: 1.05rem; line-height: 1.65; }
+.resume-document-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; }
+.resume-preview { max-width: 720px; padding-bottom: var(--home-space); }
+.resume-preview-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; padding: 1rem 0; border-top: 1px solid var(--home-rule); }
+.resume-preview-heading h2 { margin: 0; font: 600 .95rem/1.4 var(--home-body); letter-spacing: 0; }
+.resume-preview-link { display: block; padding: clamp(.5rem, 1.5vw, 1rem); border: 1px solid var(--home-rule); background: var(--home-blue); transition: border-color 180ms ease, transform 180ms ease; }
+.resume-preview-link:hover, .resume-preview-link:focus-visible { border-color: var(--home-navy); transform: translateY(-3px); }
+.resume-preview-link img { display: block; width: 100%; height: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  .resume-document-entrance { animation: home-enter 550ms both cubic-bezier(.2, .7, .2, 1); }
+}
+@media (max-width: 760px) {
+  .resume-document-intro { padding-block: 2.5rem 2rem; }
+  .resume-document-intro h1 { font-size: clamp(2.4rem, 9vw, 3.5rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .resume-document-page * { animation: none !important; transition: none !important; }
+}
