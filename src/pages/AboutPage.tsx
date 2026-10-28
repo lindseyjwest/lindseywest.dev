@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom'
 import { resume } from '../data/resume'
 
+const capabilities = [
+  { title: 'Data engineering', description: 'Snowflake pipelines, dbt models, stored procedures, and scheduled tasks that bring data together reliably.' },
+  { title: 'Analytics', description: 'Domo dashboards, KPIs, and reporting datasets that make performance and trends easier to understand.' },
+  { title: 'Automation', description: 'Python, Azure Functions, Power Automate, and internal applications that reduce repetitive work.' },
+  { title: 'Software development', description: 'Practical applications built with C#, JavaScript, REST APIs, and the Microsoft Power Platform.' },
+]
+
 const aboutTopics = [
   {
     title: 'Professional background',
@@ -57,6 +64,24 @@ export function AboutPage() {
                   <h3>{topic.title}</h3>
                   <p>{topic.description}</p>
                 </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section container" aria-labelledby="capabilities-heading">
+        <div className="about-story-layout">
+          <div className="about-story-intro">
+            <p className="eyebrow">What I do</p>
+            <h2 id="capabilities-heading">Technical work with practical purpose.</h2>
+            <p>Data systems, reporting, and software that support day-to-day decisions.</p>
+          </div>
+          <div className="about-topic-list">
+            {capabilities.map((capability, index) => (
+              <article className="about-topic" key={capability.title}>
+                <p className="about-topic-number">0{index + 1}</p>
+                <div><h3>{capability.title}</h3><p>{capability.description}</p></div>
               </article>
             ))}
           </div>

@@ -9,7 +9,7 @@ export function ProjectCard({ project, variant = 'compact' }: ProjectCardProps) 
   const hasLinks = project.githubUrl || project.liveUrl || project.caseStudyUrl
 
   return (
-    <article className={`project-entry project-entry-${variant}`}>
+    <article id={project.id} className={`project-entry project-entry-${variant}`} style={{ scrollMarginTop: '8rem' }}>
       <div className={`project-entry-visual project-tone-${project.visual.tone}`}>
         {project.visual.imageSrc ? (
           <img src={project.visual.imageSrc} alt={project.visual.imageAlt ?? ''} />

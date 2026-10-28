@@ -23,6 +23,9 @@ export type Project = {
     tone: ProjectVisualTone
     imageSrc?: string
     imageAlt?: string
+    // Optional real screenshot for the homepage preview.
+    homeImageSrc?: string
+    homeImageAlt?: string
   }
 }
 

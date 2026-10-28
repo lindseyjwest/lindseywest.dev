@@ -1,183 +1,105 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import { siteLinks } from '../data/siteLinks'
+import '../styles/home.css'
 
-const capabilities = [
-  {
-    title: 'Data Engineering',
-    description:
-      'Building and maintaining Snowflake pipelines, dbt models, stored procedures, and scheduled tasks that bring data together reliably.',
-  },
-  {
-    title: 'Analytics',
-    description:
-      'Developing Domo dashboards, KPIs, and reporting datasets that make performance and trends easier to understand.',
-  },
-  {
-    title: 'Automation',
-    description:
-      'Reducing repetitive work with Python, Azure Functions, Power Automate, and internal business applications.',
-  },
-  {
-    title: 'Software Development',
-    description:
-      'Building practical applications with C#, JavaScript, REST APIs, and the Microsoft Power Platform.',
-  },
-]
+const featuredIds = ['rv-park-management-system', 'us-accident-analytics-dashboard']
 
 export function HomePage() {
+  const workRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const items = workRef.current?.querySelectorAll<HTMLElement>('[data-reveal]')
+    if (!items?.length || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.12 })
+
+    items.forEach((item) => {
+      // Content already in view stays visible; only offscreen items are prepared for reveal.
+      if (item.getBoundingClientRect().top >= window.innerHeight) {
+        item.classList.add('will-reveal')
+        observer.observe(item)
+      }
+    })
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <>
-      <section className="home-hero container" aria-labelledby="home-title">
-        <div className="hero-content">
-          <p className="eyebrow">Professional portfolio</p>
-          <h1 id="home-title">Lindsey West</h1>
-          <p className="professional-descriptor">Data, Analytics &amp; Automation</p>
-          <p className="hero-copy">
-            I build data workflows, analytics tools, automations, and software that make
-            information easier to use and repetitive work easier to avoid.
-          </p>
-          <div className="action-group">
-            <Link className="button button-primary" to="/projects">
-              View my work
-            </Link>
-            <a
-              className="quiet-link"
-              href={siteLinks.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile (opens in a new tab)"
-            >
-              GitHub <span aria-hidden="true">↗</span>
-            </a>
-            <Link className="quiet-link" to="/resume">
-              Resume <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+    <div className="home-page">
+      <section className="home-intro home-wrap" aria-labelledby="home-title">
+        <div className="home-intro-main">
+          <p className="home-kicker hero-entrance hero-entrance-one">Salt Lake City, UT</p>
+          <h1 className="hero-entrance hero-entrance-two" id="home-title">Lindsey<br />West<span className="home-period">.</span></h1>
+          <p className="home-intro-label hero-entrance hero-entrance-three">Data, analytics <span>&amp;</span> automation</p>
         </div>
-        <figure className="hero-portrait">
-          <img
-            src="/images/profile/lindsey-west-professional-headshot.jpg"
-            alt="Lindsey West smiling in a professional headshot"
-          />
-          <figcaption>Data Analyst · Salt Lake City, UT</figcaption>
-        </figure>
-      </section>
-
-      <section className="what-i-do section" aria-labelledby="capabilities-heading">
-        <div className="container what-i-do-layout">
-          <div className="section-heading what-i-do-heading">
-            <p className="eyebrow">What I do</p>
-            <h2 id="capabilities-heading">Technical work with practical purpose.</h2>
-            <p>Data systems, reporting, and software that support day-to-day decisions.</p>
+        <div className="home-intro-side">
+          <figure className="home-portrait hero-entrance hero-entrance-two">
+            <img src="/images/profile/lindsey-west-professional-headshot.jpg" alt="Lindsey West smiling in a professional headshot" />
+            <figcaption>Data Analyst <span> / </span> Salt Lake City</figcaption>
+          </figure>
+          <div className="hero-entrance hero-entrance-four">
+            <p className="home-intro-copy">I build data workflows, analytics tools, automations, and software that make information easier to use and repetitive work easier to avoid.</p>
+            <div className="home-actions">
+              <Link className="home-button" to="/projects">View my work <span aria-hidden="true">↗</span></Link>
+              <Link className="home-inline-link" to="/resume">Resume <span aria-hidden="true">↗</span></Link>
+              <a className="home-inline-link" href={siteLinks.github} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
+            </div>
           </div>
-          <ol className="capability-list">
-            {capabilities.map((capability, index) => (
-              <li className="capability-item" key={capability.title}>
-                <span className="capability-number">0{index + 1}</span>
-                <div>
-                  <h3>{capability.title}</h3>
-                  <p>{capability.description}</p>
-                </div>
-                <span className="capability-mark" aria-hidden="true">✦</span>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
-      <section className="featured-work section container" aria-labelledby="featured-work-heading">
-        <div className="section-heading section-heading-row">
-          <div>
-            <p className="eyebrow">Featured work</p>
-            <h2 id="featured-work-heading">Selected work and technical leadership.</h2>
-          </div>
-          <Link className="text-link" to="/projects">
-            All projects <span aria-hidden="true">→</span>
-          </Link>
+      <section className="home-work home-wrap" aria-labelledby="work-heading" ref={workRef}>
+        <div className="home-work-heading">
+          <div><p className="home-kicker">Selected work</p><h2 id="work-heading">Work in <em>practice.</em></h2></div>
+          <Link className="home-inline-link" to="/projects">Explore all projects <span aria-hidden="true">↗</span></Link>
         </div>
-        <div className="featured-project-grid">
-          {projects.map((project, index) => (
-            <article className="featured-project" key={project.id}>
-              <div className={`project-visual project-tone-${project.visual.tone}`}>
-                {project.visual.imageSrc && (
-                  <img
-                    src={project.visual.imageSrc}
-                    alt={project.visual.imageAlt ?? ''}
-                    loading="lazy"
-                  />
+        <div className="home-projects">
+          {featuredIds.map((id) => projects.find((project) => project.id === id)).filter((project) => project !== undefined).map((project, index) => (
+            <article className="home-project" data-reveal key={project.id}>
+              <Link className="home-project-art" to={`/projects#${project.id}`} aria-label={`View details for ${project.title}`}>
+                {project.visual.homeImageSrc ? (
+                  <img src={project.visual.homeImageSrc} alt={project.visual.homeImageAlt ?? ''} loading="lazy" />
+                ) : (
+                  <span className="home-project-placeholder"><span className="home-project-placeholder-number">0{index + 1} / {project.category}</span><span className="home-project-placeholder-title">{project.title}</span><span className="home-project-placeholder-link">View project <span aria-hidden="true">↗</span></span></span>
                 )}
-              </div>
-              <div className="featured-project-content">
-                <p className="project-number">Project 0{index + 1} · {project.category}</p>
+              </Link>
+              <div className="home-project-copy">
+                <p className="home-project-meta">{project.category}</p>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
+                <div className="home-project-links">
+                  <Link className="home-inline-link" to={`/projects#${project.id}`}>Project details <span aria-hidden="true">→</span></Link>
+                  {project.githubUrl && <a className="home-inline-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
+                  {project.liveUrl && <a className="home-inline-link" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
+                  {project.caseStudyUrl && <a className="home-inline-link" href={project.caseStudyUrl}>Case study <span aria-hidden="true">↗</span></a>}
+                </div>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="about-preview section">
-        <div className="container about-preview-layout">
-          <div className="experience-snapshot" aria-label="Professional experience snapshot">
-            <p className="eyebrow">Current role</p>
-            <strong>Data Analyst</strong>
-            <span>Mountain Land Physical Therapy Partners</span>
-            <dl>
-              <div>
-                <dt>Since</dt>
-                <dd>2024</dd>
-              </div>
-              <div>
-                <dt>Reporting reach</dt>
-                <dd>80+ clinics</dd>
-              </div>
-              <div>
-                <dt>Support teams</dt>
-                <dd>9 departments</dd>
-              </div>
-            </dl>
-          </div>
-          <div className="about-preview-content">
-            <p className="eyebrow">About</p>
-            <h2>Turning complex workflows into useful systems.</h2>
-            <p>
-              I like working on problems that sit somewhere between data, software, and
-              process improvement. A lot of my work starts with a messy question or manual
-              process and ends with something easier to understand, maintain, or use.
-            </p>
-            <Link className="text-link" to="/about">
-              Get to know Lindsey <span aria-hidden="true">→</span>
-            </Link>
+      <section className="home-about" aria-labelledby="about-heading">
+        <div className="home-wrap home-about-layout">
+          <div><p className="home-kicker">About me</p><h2 id="about-heading">Curious about how things <em>work.</em></h2></div>
+          <div className="home-about-copy">
+            <p>I like working on problems that sit somewhere between data, software, and process improvement. A lot of my work starts with a messy question or manual process and ends with something easier to understand, maintain, or use.</p>
+            <Link className="home-inline-link" to="/about">More about me <span aria-hidden="true">→</span></Link>
           </div>
         </div>
       </section>
 
-      <section className="contact-section container" aria-labelledby="contact-heading">
-        <div className="contact-panel">
-          <p className="eyebrow">Contact</p>
-          <h2 id="contact-heading">Let&apos;s connect.</h2>
-          <p>If my work looks relevant to what you’re building, I’d be glad to hear from you.</p>
-          <div className="action-group">
-            <a
-              className="button button-primary"
-              href={siteLinks.email}
-            >
-              Email Lindsey
-            </a>
-            <a
-              className="button button-secondary"
-              href={siteLinks.linkedIn}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile (opens in a new tab)"
-            >
-              LinkedIn <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
+      <section className="home-contact home-wrap" aria-labelledby="contact-heading">
+        <div className="home-contact-layout"><h2 id="contact-heading">Let’s <em>connect.</em></h2><div><p>If my work looks relevant to what you’re building, I’d be glad to hear from you.</p><div className="home-actions"><a className="home-button" href={siteLinks.email}>Email Lindsey <span aria-hidden="true">↗</span></a><a className="home-inline-link" href={siteLinks.linkedIn} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a></div></div></div>
       </section>
-    </>
+    </div>
   )
 }

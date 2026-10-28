@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { ProjectCard } from '../components/ProjectCard'
 import { projects } from '../data/projects'
 
@@ -5,6 +7,12 @@ const featuredProjects = projects.filter((project) => project.featured)
 const otherProjects = projects.filter((project) => !project.featured)
 
 export function ProjectsPage() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) document.getElementById(hash.slice(1))?.scrollIntoView()
+  }, [hash])
+
   return (
     <>
       <section className="projects-hero container" aria-labelledby="projects-title">
