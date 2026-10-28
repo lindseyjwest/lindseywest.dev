@@ -14,16 +14,16 @@
   --home-width: 1240px;
   --home-space: clamp(3.5rem, 6vw, 5.5rem);
 }
-.site-shell:has(.home-page) { background: var(--home-white); color: var(--home-navy); font-family: var(--home-body); }
-.site-shell:has(.home-page) .site-header { background: var(--home-white); border-color: var(--home-rule); }
-.site-shell:has(.home-page) .site-logo-mark { background: var(--home-lavender); }
-.site-shell:has(.home-page) .nav-link { color: var(--home-navy); border-radius: 0; }
-.site-shell:has(.home-page) .nav-link:hover { background: transparent; }
-.site-shell:has(.home-page) .nav-link::after { position: absolute; right: .7rem; bottom: .28rem; left: .7rem; height: 2px; background: var(--home-navy); content: ''; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
-.site-shell:has(.home-page) .nav-link:hover::after, .site-shell:has(.home-page) .nav-link:focus-visible::after, .site-shell:has(.home-page) .nav-link-active::after { transform: scaleX(1); }
-.site-shell:has(.home-page) .site-footer { margin-top: 0; background: var(--home-white); border-color: var(--home-rule); }
-.site-shell:has(.home-page) .site-footer p, .site-shell:has(.home-page) .footer-links a { color: var(--home-navy); }
-.site-shell:has(.home-page) a:focus-visible { outline: 3px solid var(--home-navy); outline-offset: 4px; }
+.site-shell:has(:is(.home-page, .projects-page)) { background: var(--home-white); color: var(--home-navy); font-family: var(--home-body); }
+.site-shell:has(:is(.home-page, .projects-page)) .site-header { background: var(--home-white); border-color: var(--home-rule); }
+.site-shell:has(:is(.home-page, .projects-page)) .site-logo-mark { background: var(--home-lavender); }
+.site-shell:has(:is(.home-page, .projects-page)) .nav-link { color: var(--home-navy); border-radius: 0; }
+.site-shell:has(:is(.home-page, .projects-page)) .nav-link:hover { background: transparent; }
+.site-shell:has(:is(.home-page, .projects-page)) .nav-link::after { position: absolute; right: .7rem; bottom: .28rem; left: .7rem; height: 2px; background: var(--home-navy); content: ''; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
+.site-shell:has(:is(.home-page, .projects-page)) .nav-link:hover::after, .site-shell:has(:is(.home-page, .projects-page)) .nav-link:focus-visible::after, .site-shell:has(:is(.home-page, .projects-page)) .nav-link-active::after { transform: scaleX(1); }
+.site-shell:has(:is(.home-page, .projects-page)) .site-footer { margin-top: 0; background: var(--home-white); border-color: var(--home-rule); }
+.site-shell:has(:is(.home-page, .projects-page)) .site-footer p, .site-shell:has(:is(.home-page, .projects-page)) .footer-links a { color: var(--home-navy); }
+.site-shell:has(:is(.home-page, .projects-page)) a:focus-visible { outline: 3px solid var(--home-navy); outline-offset: 4px; }
 .home-page { color: var(--home-navy); background: var(--home-white); }
 .home-page p { color: inherit; }
 .home-wrap { width: min(var(--home-width), calc(100% - 5rem)); margin-inline: auto; }
@@ -70,7 +70,7 @@
 .home-about-layout { display: grid; grid-template-columns: 1fr .8fr; gap: clamp(3rem, 10vw, 10rem); }
 .home-about-copy > p:first-child { font-size: 1.08rem; line-height: 1.7; }
 .home-about .home-inline-link:hover { text-decoration-color: var(--home-white); }
-.site-shell:has(.home-page) .home-about a:focus-visible { outline-color: var(--home-white); }
+.site-shell:has(:is(.home-page, .projects-page)) .home-about a:focus-visible { outline-color: var(--home-white); }
 .home-contact { padding-block: var(--home-space); }
 .home-contact-layout { display: grid; grid-template-columns: 1fr .7fr; gap: 3rem; align-items: start; }
 .home-contact h2 { font-size: clamp(2.8rem, 6vw, 5rem); }
@@ -107,5 +107,7 @@
   .home-intro-copy { line-height: 1.5; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .home-page *, .site-shell:has(.home-page) .nav-link::after { animation: none !important; transition: none !important; }
+  .home-page *, .site-shell:has(:is(.home-page, .projects-page)) .nav-link::after { animation: none !important; transition: none !important; }
 }
+
+.home-concept-label { position: absolute; right: .65rem; bottom: .65rem; padding: .35rem .55rem; background: var(--home-navy); color: var(--home-white); font: 500 .63rem/1.4 var(--home-mono); text-transform: uppercase; letter-spacing: .04em; }

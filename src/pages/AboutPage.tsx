@@ -10,9 +10,11 @@ const capabilities = [
 
 const aboutTopics = [
   {
-    title: 'Professional background',
+    title: 'Professional Experience',
     description:
       'I build and maintain data pipelines, reporting datasets, dashboards, automations, and internal applications that support teams across an organization.',
+    detail:
+      'As a member of the cross-department AI and Technical Task Force, I collaborate with colleagues to identify business needs, evaluate technical solutions, and coordinate work from planning through implementation. I contribute to planning and technical development, including a clinical mentorship application and Python automation for organizing images and preparing documents.',
   },
   {
     title: 'Technical interests',
@@ -63,6 +65,7 @@ export function AboutPage() {
                 <div>
                   <h3>{topic.title}</h3>
                   <p>{topic.description}</p>
+                  {'detail' in topic && <p>{topic.detail}</p>}
                 </div>
               </article>
             ))}

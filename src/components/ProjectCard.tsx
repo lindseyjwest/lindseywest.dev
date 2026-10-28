@@ -2,67 +2,42 @@ import type { Project } from '../data/projects'
 
 type ProjectCardProps = {
   project: Project
-  variant?: 'featured' | 'compact'
+  index: number
 }
 
-export function ProjectCard({ project, variant = 'compact' }: ProjectCardProps) {
-  const hasLinks = project.githubUrl || project.liveUrl || project.caseStudyUrl
-
+export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
-    <article id={project.id} className={`project-entry project-entry-${variant}`} style={{ scrollMarginTop: '8rem' }}>
-      <div className={`project-entry-visual project-tone-${project.visual.tone}`}>
-        {project.visual.imageSrc ? (
-          <img src={project.visual.imageSrc} alt={project.visual.imageAlt ?? ''} />
+    <article id={project.id} className={`showcase-project showcase-project-${index + 1}`} data-project-reveal>
+      <div className="showcase-visual">
+        {project.visual.imageSrc && !project.visual.isPlaceholder ? (
+          <figure>
+            <img src={project.visual.imageSrc} alt={project.visual.imageAlt ?? ''} loading="lazy" />
+            {project.visual.conceptLabel && <figcaption>{project.visual.conceptLabel}</figcaption>}
+          </figure>
         ) : (
-          <div
-            className="project-entry-visual-placeholder"
-            role="img"
-            aria-label={`${project.category} visual placeholder`}
-          >
-            <span />
-            <span />
-            <span className="project-entry-visual-label">Visual placeholder</span>
+          <div className="showcase-placeholder" aria-hidden="true">
+            <span>0{index + 1} / {project.category}</span>
+            <strong>{project.title}</strong>
+            <span>Selected work</span>
           </div>
         )}
       </div>
-
-      <div className="project-entry-content">
-        <p className="project-category">{project.category}</p>
-        <h3>{project.title}</h3>
+      <div className="showcase-copy">
+        <p className="showcase-meta">0{index + 1} / {project.category}{project.status && ` / ${project.status}`}</p>
+        <h2>{project.title}</h2>
         <p>{project.description}</p>
-
-        {project.contributionSummary && (
-          <p className="project-contribution">
-            <strong>Contribution</strong>
-            {project.contributionSummary}
-          </p>
-        )}
-
-        {project.technologies.length > 0 && (
-          <ul className="technology-list" aria-label={`${project.title} technologies`}>
-            {project.technologies.map((technology) => (
-              <li key={technology}>{technology}</li>
-            ))}
+        {project.contributionSummary && <p className="showcase-contribution"><strong>My contribution</strong>{project.contributionSummary}</p>}
+        <div className="showcase-technologies">
+          <span>Tools &amp; technologies</span>
+          <ul aria-label={`${project.title} technologies`}>
+            {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
           </ul>
-        )}
-
-        {hasLinks && (
-          <div className="project-entry-links">
-            {project.githubUrl && (
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                GitHub <span aria-hidden="true">↗</span>
-              </a>
-            )}
-            {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                Live demo <span aria-hidden="true">↗</span>
-              </a>
-            )}
-            {project.caseStudyUrl && (
-              <a href={project.caseStudyUrl}>
-                Case study <span aria-hidden="true">→</span>
-              </a>
-            )}
+        </div>
+        {(project.githubUrl || project.liveUrl || project.caseStudyUrl) && (
+          <div className="showcase-links">
+            {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub repository <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
+            {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
+            {project.caseStudyUrl && <a href={project.caseStudyUrl}>Case study <span aria-hidden="true">→</span></a>}
           </div>
         )}
       </div>

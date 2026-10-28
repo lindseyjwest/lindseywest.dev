@@ -19,11 +19,14 @@ export type Project = {
   liveUrl?: string
   caseStudyUrl?: string
   featured: boolean
+  status?: string
   visual: {
     tone: ProjectVisualTone
+    isPlaceholder?: boolean
+    conceptLabel?: string
     imageSrc?: string
     imageAlt?: string
-    // Optional real screenshot for the homepage preview.
+    // Optional image for the homepage preview.
     homeImageSrc?: string
     homeImageAlt?: string
   }
@@ -43,12 +46,14 @@ export const projects: Project[] = [
     featured: true,
     visual: {
       tone: 'mint',
+      isPlaceholder: true,
       imageSrc: '/images/projects/rv-park-management-placeholder.svg',
       imageAlt: 'Placeholder for an RV Park Management System application screenshot',
     },
   },
   {
     id: 'us-accident-analytics-dashboard',
+    status: 'In progress',
     title: 'U.S. Accident Analytics Dashboard',
     category: 'Analytics',
     description:
@@ -58,24 +63,11 @@ export const projects: Project[] = [
     featured: false,
     visual: {
       tone: 'coral',
-      imageSrc: '/images/projects/us-accident-analytics-placeholder.svg',
-      imageAlt: 'Placeholder for a U.S. Accident Analytics dashboard screenshot',
-    },
-  },
-  {
-    id: 'ai-technical-task-force',
-    title: 'AI and Technical Task Force',
-    category: 'Automation',
-    description:
-      'A cross-department group that identifies business needs, evaluates technology solutions, and coordinates projects from planning through implementation.',
-    contributionSummary:
-      'Contributes to project planning and technical development, including a clinical mentorship application and Python automation for organizing images and preparing documents.',
-    technologies: ['Python', 'Automation', 'Technical planning'],
-    featured: false,
-    visual: {
-      tone: 'yellow',
-      imageSrc: '/images/projects/ai-task-force-placeholder.svg',
-      imageAlt: 'Placeholder for an AI and Technical Task Force project visual',
+      conceptLabel: 'Dashboard concept · Sample data',
+      imageSrc: '/images/projects/U.S. Accident Analytics Dashboard.png',
+      imageAlt: 'Concept design for an accident analytics dashboard with sample charts and a U.S. map',
+      homeImageSrc: '/images/projects/U.S. Accident Analytics Dashboard.png',
+      homeImageAlt: 'Concept design for an accident analytics dashboard with sample charts and a U.S. map',
     },
   },
 ]

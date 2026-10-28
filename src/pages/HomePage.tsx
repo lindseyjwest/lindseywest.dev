@@ -70,9 +70,10 @@ export function HomePage() {
                 ) : (
                   <span className="home-project-placeholder"><span className="home-project-placeholder-number">0{index + 1} / {project.category}</span><span className="home-project-placeholder-title">{project.title}</span><span className="home-project-placeholder-link">View project <span aria-hidden="true">↗</span></span></span>
                 )}
+                {project.visual.conceptLabel && <span className="home-concept-label">Concept preview · Sample data</span>}
               </Link>
               <div className="home-project-copy">
-                <p className="home-project-meta">{project.category}</p>
+                <p className="home-project-meta">{project.category}{project.status && ` / ${project.status}`}</p>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
                 <div className="home-project-links">
