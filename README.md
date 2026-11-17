@@ -21,7 +21,7 @@ Lindsey West's professional portfolio, built with React, TypeScript, and Vite.
 - `src/components/` contains the shared layout, project presentation, and navigation behavior.
 - `src/data/projects.ts` defines project order, featured selections, copy, and screenshots.
 - `src/styles/` contains the existing design tokens and page-specific responsive styles.
-- `public/_redirects` supports direct links to client-side routes on Cloudflare Pages.
+- Cloudflare Workers serves `dist/` with `assets.not_found_handling = "single-page-application"` for direct links and refreshes; no SPA catch-all in `_redirects` is needed.
 
 ## Portfolio assets
 
