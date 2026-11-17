@@ -57,7 +57,15 @@ export const projects: Project[] = [
     technologies: ['C#', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server', 'Bootstrap'],
     githubUrl: 'https://github.com/XaRodriguezWSU/RVPark',
     featured: true,
-    screenshots: [],
+    screenshots: [
+      {
+        src: '/images/projects/RVSite.png',
+        alt: 'RV Park Management System home page showing a featured campsite and available RV sites',
+        caption: 'Featured campsite and available RV sites',
+        width: 1507,
+        height: 945,
+      },
+    ],
   },
   {
     id: 'studybuddy',
