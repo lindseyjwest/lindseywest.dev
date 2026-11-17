@@ -137,17 +137,9 @@ p {
 .site-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
   font-weight: 700;
   letter-spacing: -0.035em;
   text-decoration: none;
-}
-
-.site-logo-mark {
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 50%;
-  background: var(--coral);
 }
 
 .site-navigation {

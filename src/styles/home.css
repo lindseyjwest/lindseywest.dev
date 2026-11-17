@@ -16,7 +16,6 @@
 }
 .site-shell:has(:is(.home-page, .projects-page, .about-page, .resume-document-page)) { background: var(--home-white); color: var(--home-navy); font-family: var(--home-body); }
 .site-shell:has(:is(.home-page, .projects-page, .about-page, .resume-document-page)) .site-header { background: var(--home-white); border-color: var(--home-rule); }
-.site-shell:has(:is(.home-page, .projects-page, .about-page, .resume-document-page)) .site-logo-mark { background: var(--home-lavender); }
 .site-shell:has(:is(.home-page, .projects-page, .about-page, .resume-document-page)) .nav-link { color: var(--home-navy); border-radius: 0; }
 .site-shell:has(:is(.home-page, .projects-page, .about-page, .resume-document-page)) .nav-link:hover { background: transparent; }
 .site-shell:has(:is(.home-page, .projects-page, .about-page, .resume-document-page)) .nav-link::after { position: absolute; right: .7rem; bottom: .28rem; left: .7rem; height: 2px; background: var(--home-navy); content: ''; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }

@@ -24,7 +24,7 @@ export function Layout() {
       <header className="site-header">
         <div className="container header-content">
           <NavLink className="site-logo" to="/" aria-label="Lindsey West home">
-            Lindsey West<span className="site-logo-mark" aria-hidden="true" />
+            Lindsey West
           </NavLink>
           <nav aria-label="Primary navigation">
             <ul className="site-navigation">
