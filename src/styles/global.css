@@ -1320,6 +1320,13 @@ code {
   text-underline-offset: 0.25em;
 }
 
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: .25em;
+  min-height: 44px;
+}
+
 .footer-links a:hover {
   color: var(--accent-dark);
   text-decoration-color: currentColor;

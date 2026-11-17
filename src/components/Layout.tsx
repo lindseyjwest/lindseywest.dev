@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { siteLinks } from '../data/siteLinks'
 import { NavigationBehavior } from './NavigationBehavior'
+import { PageMetadata } from './PageMetadata'
 
 const navigationItems = [
   { label: 'Home', to: '/' },
@@ -12,6 +13,7 @@ const navigationItems = [
 export function Layout() {
   return (
     <div className="site-shell">
+      <PageMetadata />
       <NavigationBehavior />
       <a className="skip-link" href="#main-content" onClick={(event) => {
         event.preventDefault()

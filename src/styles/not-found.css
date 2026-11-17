@@ -1,0 +1,4 @@
+.not-found-intro { padding-block: clamp(3rem, 7vw, 6rem); }
+.not-found-intro h1 { font: 400 clamp(2.8rem, 5vw, 4.7rem)/1.08 var(--home-display); letter-spacing: -.045em; }
+.not-found-intro h1 em { font: italic 1.16em/1 var(--home-serif); letter-spacing: -.02em; }
+.not-found-intro > p:not(.home-kicker) { max-width: 38rem; margin-bottom: 1.5rem; font-size: 1.05rem; }

@@ -1,5 +1,7 @@
 export type ProjectScreenshot = {
   src: string
+  srcSet?: string
+  fullSizeSrc?: string
   alt: string
   caption: string
   width: number
@@ -59,7 +61,9 @@ export const projects: Project[] = [
     featured: true,
     screenshots: [
       {
-        src: '/images/projects/RVSite.png',
+        src: '/images/projects/RVSite.webp',
+        srcSet: '/images/projects/RVSite-768.webp 768w, /images/projects/RVSite.webp 1507w',
+        fullSizeSrc: '/images/projects/RVSite.png',
         alt: 'RV Park Management System home page showing a featured campsite and available RV sites',
         caption: 'Featured campsite and available RV sites',
         width: 1507,

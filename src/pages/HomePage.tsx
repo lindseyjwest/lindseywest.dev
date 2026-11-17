@@ -66,7 +66,7 @@ export function HomePage() {
             <article className="home-project" data-reveal key={project.id}>
               <Link className={`home-project-art${project.cover || project.screenshots.length ? '' : ' home-project-art-placeholder'}`} to={`/projects#${project.id}`} aria-label={`View details for ${project.title}`}>
                 {project.cover === 'time-keeper' ? <TimeKeeperCover subtitle="Development & maintenance" showFooter={false} /> : project.screenshots[0] ? (
-                  <img src={project.screenshots[0].src} alt={project.screenshots[0].alt} width={project.screenshots[0].width} height={project.screenshots[0].height} loading="lazy" />
+                  <img src={project.screenshots[0].src} srcSet={project.screenshots[0].srcSet} sizes={project.screenshots[0].srcSet ? '(max-width: 760px) calc(100vw - 2rem), (max-width: 1320px) 52vw, 640px' : undefined} alt={project.screenshots[0].alt} width={project.screenshots[0].width} height={project.screenshots[0].height} loading="lazy" />
                 ) : (
                   <span className="home-project-placeholder"><span className="home-project-placeholder-number" aria-hidden="true" /><span className="home-project-placeholder-title">{project.focus}</span><span className="home-project-placeholder-link">View project <span aria-hidden="true">→</span></span></span>
                 )}

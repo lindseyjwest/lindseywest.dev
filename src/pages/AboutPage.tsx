@@ -61,7 +61,7 @@ export function AboutPage() {
                 <h3>{experience.role}</h3>
                 <p>I build and maintain data pipelines and SQL-based dbt models in Snowflake, integrating data from multiple sources. I investigate data quality issues, troubleshoot pipelines, and validate reporting across systems.</p>
                 <p>I develop Domo dashboards and reporting datasets for more than 80 clinics and nine support service departments. I also build internal applications and automate repetitive workflows using Python and Microsoft Power Platform.</p>
-                <p>On our AI and Technology Task Force, I help plan and develop internal tools, including a clinical mentorship app and Python automation for organizing images and preparing documents.</p>
+                <p>On our AI &amp; Technology Task Force, I help plan and develop internal tools, including a clinical mentorship app and Python automation for organizing images and preparing documents.</p>
               </div>
             </article>
           </div>

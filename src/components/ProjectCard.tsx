@@ -15,9 +15,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="showcase-media">
         <div className="showcase-visual">
           {project.cover === 'time-keeper' ? <TimeKeeperCover subtitle="Development & maintenance" showFooter={false} /> : screenshot ? (
-            <a className="showcase-screenshot" href={screenshot.src} target="_blank" rel="noopener noreferrer" aria-label={`View full-size ${project.title} screenshot (opens in a new tab)`}>
+            <a className="showcase-screenshot" href={screenshot.fullSizeSrc ?? screenshot.src} target="_blank" rel="noopener noreferrer" aria-label={`View full-size ${project.title} screenshot (opens in a new tab)`}>
               <figure>
-                <img src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height} loading="lazy" />
+                <img src={screenshot.src} srcSet={screenshot.srcSet} sizes={screenshot.srcSet ? '(max-width: 760px) calc(100vw - 2rem), (max-width: 960px) calc(100vw - 5rem), (max-width: 1320px) 52vw, 670px' : undefined} alt={screenshot.alt} width={screenshot.width} height={screenshot.height} loading="lazy" />
                 <figcaption>{screenshot.caption}<span aria-hidden="true">↗</span></figcaption>
               </figure>
             </a>
@@ -30,7 +30,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           )}
         </div>
         {supportingScreenshots.map(image => (
-          <a className="showcase-secondary-image" key={image.src} href={image.src} target="_blank" rel="noopener noreferrer">
+          <a className="showcase-secondary-image" key={image.src} href={image.fullSizeSrc ?? image.src} target="_blank" rel="noopener noreferrer">
             {image.caption} <span aria-hidden="true">↗</span><span className="sr-only"> (screenshot opens in a new tab)</span>
           </a>
         ))}

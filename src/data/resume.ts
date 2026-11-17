@@ -64,7 +64,7 @@ export const resume = {
       ],
     },
     {
-      title: 'AI and Technical Task Force',
+      title: 'AI & Technology Task Force',
       context: 'Healthcare industry, Cottonwood Heights, UT',
       date: '2026',
       highlights: [
