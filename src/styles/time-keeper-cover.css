@@ -1,0 +1,12 @@
+.time-keeper-cover { container-type: inline-size; display: flex; width: 100%; aspect-ratio: 1.65; flex-direction: column; justify-content: space-between; gap: .35rem; padding: 6%; background: var(--home-blue); color: var(--home-navy); }
+.time-keeper-cover-heading { display: grid; gap: .25rem; }
+.time-keeper-cover-title { font: 400 clamp(1.5rem, 7.7cqw, 3rem)/1.08 var(--home-display); letter-spacing: -.045em; }
+.time-keeper-cover-subtitle { font: italic clamp(1.5rem, 8cqw, 3.2rem)/1.05 var(--home-serif); letter-spacing: -.025em; }
+.time-keeper-cover-motif { display: block; width: 38%; height: auto; flex-shrink: 0; align-self: flex-end; }
+.time-keeper-cover-label { font: 500 .75rem/1.5 var(--home-mono); letter-spacing: .015em; }
+.time-keeper-cover-label span { white-space: nowrap; }
+.time-keeper-cover-footer-space { height: 1.125rem; flex-shrink: 0; }
+@container (max-width: 320px) {
+  .time-keeper-cover-footer-space { height: 2.25rem; }
+}
+.home-project-art .time-keeper-cover { height: 100%; aspect-ratio: auto; }

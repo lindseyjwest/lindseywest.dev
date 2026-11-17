@@ -9,18 +9,27 @@
 .projects-intro-layout > p { max-width: 380px; margin: 0 0 .3rem; font-size: 1.05rem; line-height: 1.65; }
 .showcase-project { display: grid; grid-template-columns: 1.05fr .85fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; padding-block: clamp(2.5rem, 5vw, 4.5rem); border-top: 1px solid var(--home-rule); scroll-margin-top: 7rem; }
 .showcase-project-2 { grid-template-columns: .8fr 1.1fr; }
-.showcase-project-2 .showcase-visual { order: 2; }
+.showcase-project-2 .showcase-media { order: 2; }
+.showcase-media { min-width: 0; }
+.showcase-project-editorial .showcase-media { align-self: start; }
 .showcase-visual { min-width: 0; overflow: hidden; background: var(--home-blue); }
 .showcase-visual figure { margin: 0; }
 .showcase-visual img { display: block; width: 100%; height: auto; transition: transform 350ms ease; }
 .showcase-visual:hover img { transform: scale(1.025); }
-.showcase-visual figcaption { position: relative; padding: .65rem 1rem; background: var(--home-navy); color: var(--home-white); }
-.showcase-placeholder { display: flex; min-height: clamp(260px, 32vw, 410px); flex-direction: column; justify-content: space-between; padding: clamp(1.5rem, 3vw, 2.5rem); }
-.showcase-placeholder strong { max-width: 12ch; font: italic clamp(3rem, 5.5vw, 5rem)/.95 var(--home-serif); letter-spacing: -.03em; }
+.showcase-visual figcaption { position: relative; display: flex; justify-content: space-between; gap: 1rem; padding: .75rem 1rem; background: var(--home-navy); color: var(--home-white); font-size: .75rem; }
+.showcase-visual figcaption > span { flex-shrink: 0; }
+.showcase-screenshot { display: block; text-decoration: none; }
+.showcase-screenshot:focus-visible { outline-offset: -4px !important; }
+.showcase-secondary-image { display: inline-block; margin-top: .5rem; padding-block: .65rem; font-size: .9rem; font-weight: 600; text-underline-offset: .3em; }
+.showcase-placeholder { display: flex; min-height: clamp(260px, 32vw, 410px); flex-direction: column; justify-content: space-between; gap: 2rem; padding: clamp(1.5rem, 3vw, 2.5rem); }
+.showcase-placeholder-label-space { min-height: 1.5em; }
+.showcase-placeholder strong { max-width: 15ch; font: italic clamp(2.4rem, 4.5vw, 4.5rem)/1 var(--home-serif); letter-spacing: -.03em; }
 .showcase-copy h2 { margin: 0 0 1rem; font: 400 clamp(1.65rem, 3vw, 2.65rem)/1.1 var(--home-display); letter-spacing: -.04em; }
 .showcase-copy > p:not(.showcase-meta) { line-height: 1.65; }
 .showcase-meta { margin-bottom: 1rem; }
-.showcase-contribution strong { display: block; margin-bottom: .25rem; font-size: .85rem; }
+.showcase-context { font-size: .85rem; }
+.showcase-contribution h3 { margin-bottom: .5rem; font: 700 .85rem/1.5 var(--home-body); letter-spacing: 0; }
+.showcase-contribution ul { display: grid; gap: .55rem; margin: 0; padding-left: 1.1rem; font-size: .94rem; line-height: 1.65; }
 .showcase-technologies { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--home-rule); }
 .showcase-technologies ul { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin: .55rem 0 0; padding: 0; list-style: none; font-size: .9rem; }
 .showcase-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 1.2rem; }
@@ -30,14 +39,19 @@
 @media (prefers-reduced-motion: no-preference) {
   .showcase-project.will-reveal { opacity: 0; transform: translateY(22px); transition: opacity 500ms ease, transform 500ms ease; }
   .showcase-project.will-reveal.is-visible, .showcase-project.will-reveal:focus-within, .showcase-project:target { opacity: 1; transform: none; }
+  .showcase-project:target { transition: none; }
 }
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   .projects-intro { padding-block: 2.5rem 2rem; }
   .projects-intro-layout { grid-template-columns: 1fr; gap: 1.25rem; }
   .projects-intro h1 { font-size: clamp(2.6rem, 9vw, 4rem); }
   .showcase-project, .showcase-project-2 { grid-template-columns: 1fr; gap: 1.5rem; }
-  .showcase-project-2 .showcase-visual { order: 0; }
+  .showcase-project-2 .showcase-media { order: 0; }
   .showcase-placeholder { min-height: 220px; }
+}
+@media (max-width: 480px) {
+  .projects-end { flex-direction: column; align-items: flex-start; gap: .25rem; }
+  .projects-end a { white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) {
   .projects-page * { animation: none !important; transition: none !important; }

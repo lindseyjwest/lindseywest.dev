@@ -14,7 +14,7 @@ export function ResumePage() {
               Download Resume <span aria-hidden="true">↓</span>
             </a>
             <a className="home-inline-link" href={siteLinks.resumePdfPath} target="_blank" rel="noopener noreferrer">
-              View PDF <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span>
+              Open PDF <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span>
             </a>
           </div>
         </div>
@@ -24,7 +24,14 @@ export function ResumePage() {
           <h2 id="resume-preview-title">Resume preview</h2>
           <span>PDF / Lindsey West</span>
         </div>
-        <a className="resume-preview-link" href={siteLinks.resumePdfPath} target="_blank" rel="noopener noreferrer" aria-label="View Lindsey West’s resume PDF (opens in a new tab)">
+        <p className="resume-preview-help">Open the PDF to read the full resume or zoom in.</p>
+        <details className="resume-preview-mobile">
+          <summary id="resume-preview-toggle">Show resume preview</summary>
+          <a className="resume-preview-link" href={siteLinks.resumePdfPath} target="_blank" rel="noopener noreferrer" aria-label="Open Lindsey West’s resume PDF to read (opens in a new tab)">
+            <img src="/resume/lindsey-west-resume-preview.png" alt="" width="1224" height="1584" loading="lazy" />
+          </a>
+        </details>
+        <a className="resume-preview-link resume-preview-desktop" href={siteLinks.resumePdfPath} target="_blank" rel="noopener noreferrer" aria-label="View Lindsey West’s resume PDF (opens in a new tab)">
           <img src="/resume/lindsey-west-resume-preview.png" alt="" width="1224" height="1584" />
         </a>
       </section>

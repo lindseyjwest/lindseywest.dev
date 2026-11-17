@@ -1,6 +1,6 @@
 # lindseywest.dev
 
-Phase 1 shell for Lindsey West's professional portfolio.
+Lindsey West's professional portfolio, built with React, TypeScript, and Vite.
 
 ## Run locally
 
@@ -18,14 +18,29 @@ Phase 1 shell for Lindsey West's professional portfolio.
 ## Structure
 
 - `src/pages/` contains the four top-level pages.
-- `src/components/` contains the shared layout and reusable page introduction.
-- `src/styles/global.css` contains the small set of global design tokens and responsive styles.
+- `src/components/` contains the shared layout, project presentation, and navigation behavior.
+- `src/data/projects.ts` defines project order, featured selections, copy, and screenshots.
+- `src/styles/` contains the existing design tokens and page-specific responsive styles.
 - `public/_redirects` supports direct links to client-side routes on Cloudflare Pages.
 
 ## Portfolio assets
 
 - The downloadable resume lives at `public/resume/lindsey-west-resume.pdf`.
 - The professional headshot lives at `public/images/profile/lindsey-west-professional-headshot.jpg`.
-- Project placeholder images live in `public/images/projects/`. Replace an SVG with a real
-  screenshot using the same filename to update the site without changing React code.
-- Resume content shown on the site is centralized in `src/data/resume.ts`.
+- Application screenshots live in `public/images/projects/`; their paths, intrinsic dimensions,
+  alt text, and captions are set in `src/data/projects.ts`.
+- Time Keeper uses a shared editorial cover in `src/components/TimeKeeperCover.tsx`, styled
+  with the portfolio's existing fonts and colors. Its cover and contribution evidence links
+  are configured separately from application screenshots in `src/data/projects.ts`.
+- StudyBuddy screenshots come from the project's public `studybuddy/Screenshots/` directory:
+  https://github.com/lindseyjwest/CS3620_Portfolio/tree/main/studybuddy/Screenshots
+- Earlier Time Keeper application captures remain in `public/images/projects/` for reference
+  and are not displayed. They used existing demonstration records and read-only navigation;
+  its repository and databases were left unchanged. Any future supporting application capture
+  should demonstrate the integrated reporting behavior and use the caption
+  “Existing application interface · Demonstration data”.
+- RV Park still needs a real application capture. Its clearly labeled temporary cover is
+  replaced automatically when a screenshot is added to its data entry. Running it requires
+  .NET 8 and SQL Server; its repository and database were not changed for this portfolio.
+- The resume PDF is maintained separately. The mobile page offers a collapsible image preview
+  and direct PDF access; changing that presentation does not alter the PDF.

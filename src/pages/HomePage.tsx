@@ -2,9 +2,8 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import { siteLinks } from '../data/siteLinks'
+import { TimeKeeperCover } from '../components/TimeKeeperCover'
 import '../styles/home.css'
-
-const featuredIds = ['rv-park-management-system', 'us-accident-analytics-dashboard']
 
 export function HomePage() {
   const workRef = useRef<HTMLElement>(null)
@@ -43,10 +42,11 @@ export function HomePage() {
         <div className="home-intro-side">
           <figure className="home-portrait hero-entrance hero-entrance-two">
             <img src="/images/profile/lindsey-west-professional-headshot.jpg" alt="Lindsey West smiling in a professional headshot" />
-            <figcaption>Data Analyst <span> / </span> Salt Lake City</figcaption>
+            <figcaption>Data Analyst</figcaption>
           </figure>
           <div className="hero-entrance hero-entrance-four">
-            <p className="home-intro-copy">I build data workflows, analytics tools, automations, and software that make information easier to use and repetitive work easier to avoid.</p>
+            <p className="home-intro-copy">I'm a Data Analyst working in healthcare. I work on reporting, Snowflake data pipelines, automation, and internal applications.</p>
+            <Link className="home-inline-link" to="/about#professional-experience">Professional experience</Link>
             <div className="home-actions">
               <Link className="home-button" to="/projects">View my work <span aria-hidden="true">↗</span></Link>
               <Link className="home-inline-link" to="/resume">Resume <span aria-hidden="true">↗</span></Link>
@@ -62,25 +62,22 @@ export function HomePage() {
           <Link className="home-inline-link" to="/projects">Explore all projects <span aria-hidden="true">↗</span></Link>
         </div>
         <div className="home-projects">
-          {featuredIds.map((id) => projects.find((project) => project.id === id)).filter((project) => project !== undefined).map((project, index) => (
+          {projects.filter(project => project.featured).map((project) => (
             <article className="home-project" data-reveal key={project.id}>
-              <Link className="home-project-art" to={`/projects#${project.id}`} aria-label={`View details for ${project.title}`}>
-                {project.visual.homeImageSrc ? (
-                  <img src={project.visual.homeImageSrc} alt={project.visual.homeImageAlt ?? ''} loading="lazy" />
+              <Link className={`home-project-art${project.cover || project.screenshots.length ? '' : ' home-project-art-placeholder'}`} to={`/projects#${project.id}`} aria-label={`View details for ${project.title}`}>
+                {project.cover === 'time-keeper' ? <TimeKeeperCover subtitle="Development & maintenance" showFooter={false} /> : project.screenshots[0] ? (
+                  <img src={project.screenshots[0].src} alt={project.screenshots[0].alt} width={project.screenshots[0].width} height={project.screenshots[0].height} loading="lazy" />
                 ) : (
-                  <span className="home-project-placeholder"><span className="home-project-placeholder-number">0{index + 1} / {project.category}</span><span className="home-project-placeholder-title">{project.title}</span><span className="home-project-placeholder-link">View project <span aria-hidden="true">↗</span></span></span>
+                  <span className="home-project-placeholder"><span className="home-project-placeholder-number" aria-hidden="true" /><span className="home-project-placeholder-title">{project.focus}</span><span className="home-project-placeholder-link">View project <span aria-hidden="true">→</span></span></span>
                 )}
-                {project.visual.conceptLabel && <span className="home-concept-label">Concept preview · Sample data</span>}
               </Link>
               <div className="home-project-copy">
-                <p className="home-project-meta">{project.category}{project.status && ` / ${project.status}`}</p>
+                <p className="home-project-meta">{project.focus}</p>
                 <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                <p>{project.summary}</p>
                 <div className="home-project-links">
                   <Link className="home-inline-link" to={`/projects#${project.id}`}>Project details <span aria-hidden="true">→</span></Link>
                   {project.githubUrl && <a className="home-inline-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
-                  {project.liveUrl && <a className="home-inline-link" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
-                  {project.caseStudyUrl && <a className="home-inline-link" href={project.caseStudyUrl}>Case study <span aria-hidden="true">↗</span></a>}
                 </div>
               </div>
             </article>
@@ -92,7 +89,7 @@ export function HomePage() {
         <div className="home-wrap home-about-layout">
           <div><p className="home-kicker">About me</p><h2 id="about-heading">Curious about how things <em>work.</em></h2></div>
           <div className="home-about-copy">
-            <p>I like working on problems that sit somewhere between data, software, and process improvement. A lot of my work starts with a messy question or manual process and ends with something easier to understand, maintain, or use.</p>
+            <p>I like figuring out how things work, finding better ways to do things, and building tools people actually use.</p>
             <Link className="home-inline-link" to="/about">More about me <span aria-hidden="true">→</span></Link>
           </div>
         </div>

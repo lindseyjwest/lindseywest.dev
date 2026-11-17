@@ -1,73 +1,87 @@
-export type ProjectCategory =
-  | 'Data engineering'
-  | 'Analytics'
-  | 'Automation'
-  | 'Software engineering'
-  | 'School project'
-  | 'Personal project'
-
-export type ProjectVisualTone = 'blue' | 'coral' | 'yellow' | 'mint'
+export type ProjectScreenshot = {
+  src: string
+  alt: string
+  caption: string
+  width: number
+  height: number
+}
 
 export type Project = {
   id: string
   title: string
-  category: ProjectCategory
-  description: string
-  contributionSummary?: string
+  category: string
+  focus: string
+  context: string
+  summary: string
+  description: string[]
+  contributions?: string[]
   technologies: string[]
-  githubUrl?: string
-  liveUrl?: string
-  caseStudyUrl?: string
+  githubUrl: string
   featured: boolean
-  status?: string
-  visual: {
-    tone: ProjectVisualTone
-    isPlaceholder?: boolean
-    conceptLabel?: string
-    imageSrc?: string
-    imageAlt?: string
-    // Optional image for the homepage preview.
-    homeImageSrc?: string
-    homeImageAlt?: string
-  }
+  cover?: 'time-keeper'
+  evidenceLinks?: { label: string; url: string }[]
+  screenshots: ProjectScreenshot[]
 }
 
 export const projects: Project[] = [
   {
+    id: 'time-keeper',
+    title: 'Time Keeper',
+    category: 'Software engineering',
+    focus: 'Application development & maintenance',
+    context: 'Senior capstone · Team project',
+    summary:
+      'A time-tracking app for course projects. I improved administrative features, reporting, and usability as part of my senior capstone.',
+    description: [
+      "Time Keeper is a web application that helps students track time spent on course projects. It's maintained by successive student teams, so my capstone work involved building on an existing codebase.",
+      'I contributed to administrative features, reporting, automated testing, and improvements to the user interface.',
+    ],
+    technologies: ['Angular', 'TypeScript', 'Node.js', 'Express', 'SQL', 'Bootstrap', 'Chart.js'],
+    githubUrl: 'https://github.com/bradleypeterson/TimeTrackerFall22',
+    featured: true,
+    cover: 'time-keeper',
+    screenshots: [],
+  },
+  {
     id: 'rv-park-management-system',
     title: 'RV Park Management System',
     category: 'Software engineering',
-    description:
-      'A team-built RV park management application with backend logic for availability, reporting, and data management.',
-    contributionSummary:
-      'Contributed to backend development, testing, reporting and availability logic, database setup, and project planning and implementation decisions.',
-    technologies: ['.NET 8 MVC', 'C#', 'Entity Framework Core', 'SQLite', 'Git/GitHub'],
+    focus: 'Operational reporting & data modeling',
+    context: 'Team project · Software engineering',
+    summary:
+      'A team-built reservation app for RV park staff. I worked on reporting features, backend functionality, and data models.',
+    description: [
+      'A reservation management application built by our team to help RV park staff manage campsites, bookings, and daily operations.',
+      "I worked on the reporting features, including tools for reviewing arrivals, departures, occupancy, and reservation history. I also contributed to the application's backend and data models.",
+    ],
+    technologies: ['C#', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server', 'Bootstrap'],
     githubUrl: 'https://github.com/XaRodriguezWSU/RVPark',
     featured: true,
-    visual: {
-      tone: 'mint',
-      isPlaceholder: true,
-      imageSrc: '/images/projects/rv-park-management-placeholder.svg',
-      imageAlt: 'Placeholder for an RV Park Management System application screenshot',
-    },
+    screenshots: [],
   },
   {
-    id: 'us-accident-analytics-dashboard',
-    status: 'In progress',
-    title: 'U.S. Accident Analytics Dashboard',
-    category: 'Analytics',
-    description:
-      'An interactive Streamlit dashboard that uses Python and pandas to clean and analyze millions of U.S. traffic accident records, with visualizations for accident severity, location, time, and weather trends.',
-    technologies: ['Python', 'pandas', 'Streamlit'],
-    githubUrl: 'https://github.com/lindseyjwest/us-accident-analytics',
+    id: 'studybuddy',
+    title: 'StudyBuddy',
+    category: 'Software engineering',
+    focus: 'Full-stack development & activity visualization',
+    context: 'Individual project · Full-stack development',
+    summary:
+      'A study productivity app I built independently with Django, with a customizable focus timer, session tracking, and a progress dashboard.',
+    description: [
+      'A study productivity web app I built independently using Django. It includes a customizable focus timer, study session tracking, and a dashboard for reviewing progress over time.',
+      'I developed the application from start to finish, including user accounts, session management, and activity visualizations.',
+    ],
+    technologies: ['Python', 'Django', 'SQLite', 'JavaScript', 'Bootstrap', 'Chart.js'],
+    githubUrl: 'https://github.com/lindseyjwest/CS3620_Portfolio/tree/main/studybuddy',
     featured: false,
-    visual: {
-      tone: 'coral',
-      conceptLabel: 'Dashboard concept · Sample data',
-      imageSrc: '/images/projects/U.S. Accident Analytics Dashboard.png',
-      imageAlt: 'Concept design for an accident analytics dashboard with sample charts and a U.S. map',
-      homeImageSrc: '/images/projects/U.S. Accident Analytics Dashboard.png',
-      homeImageAlt: 'Concept design for an accident analytics dashboard with sample charts and a U.S. map',
-    },
+    screenshots: [
+      {
+        src: '/images/projects/studybuddy-dashboard.png',
+        alt: 'StudyBuddy dashboard showing weekly focus and break totals, a study streak, and daily goal progress',
+        caption: 'Weekly activity and daily goal progress',
+        width: 1881,
+        height: 982,
+      },
+    ],
   },
 ]

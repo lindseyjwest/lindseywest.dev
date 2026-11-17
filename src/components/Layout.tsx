@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { siteLinks } from '../data/siteLinks'
+import { NavigationBehavior } from './NavigationBehavior'
 
 const navigationItems = [
   { label: 'Home', to: '/' },
@@ -11,7 +12,13 @@ const navigationItems = [
 export function Layout() {
   return (
     <div className="site-shell">
-      <a className="skip-link" href="#main-content">
+      <NavigationBehavior />
+      <a className="skip-link" href="#main-content" onClick={(event) => {
+        event.preventDefault()
+        const main = document.getElementById('main-content')
+        main?.focus({ preventScroll: true })
+        main?.scrollIntoView({ behavior: 'instant', block: 'start' })
+      }}>
         Skip to content
       </a>
       <header className="site-header">
@@ -39,7 +46,7 @@ export function Layout() {
         </div>
       </header>
 
-      <main id="main-content" className="main-content">
+      <main id="main-content" className="main-content" tabIndex={-1}>
         <Outlet />
       </main>
 
@@ -47,7 +54,7 @@ export function Layout() {
         <div className="container footer-content">
           <div>
             <p className="footer-name">Lindsey West</p>
-            <p>© {new Date().getFullYear()} · Professional portfolio</p>
+            <p>© {new Date().getFullYear()}</p>
           </div>
           <nav className="footer-links" aria-label="Portfolio links">
             <a

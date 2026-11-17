@@ -10,10 +10,6 @@ export function ProjectsPage() {
   const showcaseRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    if (hash) document.getElementById(hash.slice(1))?.scrollIntoView()
-  }, [hash])
-
-  useEffect(() => {
     const items = showcaseRef.current?.querySelectorAll<HTMLElement>('[data-project-reveal]')
     if (!items?.length || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const observer = new IntersectionObserver((entries) => {
@@ -38,8 +34,8 @@ export function ProjectsPage() {
       <header className="projects-intro home-wrap">
         <p className="projects-label">Selected work / Lindsey West</p>
         <div className="projects-intro-layout">
-          <h1>Work worth<br /><em>looking closer at.</em></h1>
-          <p>A selection of data, analytics, automation, and software work, from collaborative applications to reporting and process improvement.</p>
+          <h1 id="projects-title">Selected<br /><em>projects.</em></h1>
+          <p>A few projects I've worked on, from building applications to improving existing software.</p>
         </div>
       </header>
       <section className="projects-showcase home-wrap" aria-label="Projects" ref={showcaseRef}>

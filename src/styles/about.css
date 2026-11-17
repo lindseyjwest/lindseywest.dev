@@ -13,8 +13,8 @@
 .about-intro-portrait { position: relative; width: 100%; max-width: 310px; margin: 0; justify-self: end; }
 .about-intro-portrait::before { position: absolute; top: 1rem; right: -1rem; bottom: 2rem; left: 1rem; background: var(--home-lavender); content: ''; }
 .about-intro-portrait img { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.about-intro-portrait figcaption { position: relative; padding-top: .7rem; font-size: .62rem; }
-.about-experience { padding-block: var(--home-space); background: var(--home-blue); }
+.about-intro-portrait figcaption { position: relative; padding-top: .7rem; font-size: .75rem; }
+.about-experience { padding-block: var(--home-space); background: var(--home-blue); scroll-margin-top: 7rem; }
 .about-section-layout { display: grid; grid-template-columns: .7fr 1fr; align-items: start; gap: clamp(3rem, 8vw, 8rem); }
 .about-section-heading > p:last-child { max-width: 350px; }
 .about-timeline { border-top: 1px solid var(--home-rule); }
@@ -54,6 +54,13 @@
   .about-skill-row p { grid-column: 2; }
   .about-education-entry { flex-direction: column; gap: .5rem; }
   .about-education-entry .about-label { text-align: left; }
+}
+@media (min-width: 761px) and (max-width: 960px) {
+  .about-section-layout, .about-skills, .about-closing { grid-template-columns: 1fr; gap: 2rem; }
+  .about-section-heading > p:last-child, .about-skills-intro > p:last-child { max-width: 56ch; }
+  .about-timeline-entry { grid-template-columns: 1fr; gap: 1rem; }
+  .about-timeline-meta { flex-direction: row; flex-wrap: wrap; gap: .5rem 1.5rem; }
+  .about-closing > div:last-child { max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .about-page * { animation: none !important; transition: none !important; }

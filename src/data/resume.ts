@@ -65,7 +65,7 @@ export const resume = {
     },
     {
       title: 'AI and Technical Task Force',
-      context: 'Mountain Land Physical Therapy Partners, Cottonwood Heights, UT',
+      context: 'Healthcare industry, Cottonwood Heights, UT',
       date: '2026',
       highlights: [
         'Collaborate with representatives across departments to identify business needs, evaluate technology solutions, and coordinate projects from planning through implementation.',
